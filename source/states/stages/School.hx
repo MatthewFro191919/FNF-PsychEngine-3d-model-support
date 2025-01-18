@@ -127,9 +127,9 @@ class School extends BaseStage
 	var posMap:Map<String, PosThing> = [];
 	var bgGirls:BackgroundGirls;
 	
-	var boyfriend:Character3D;
-	var dad:Character3D;
-	var gf:Character3D;
+	var boyfriend3d:Character3D;
+	var dad3d:Character3D;
+	var gf3d:Character3D;
 	
 	override function create()
 	{
