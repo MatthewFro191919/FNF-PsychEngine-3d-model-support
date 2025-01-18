@@ -800,12 +800,6 @@ class Character3D extends FlxSprite
 		}
 	}
 
-	public override function destroy()
-	{
-		atlas = FlxDestroyUtil.destroy(atlas);
-		super.destroy();
-	}
-	#end
 	public function getCurAnim()
 	{
 		if (model != null && model.fullyLoaded)
@@ -833,6 +827,10 @@ class Character3D extends FlxSprite
 			animSpeed.clear();
 			animSpeed = null;
 		}
+
+		atlas = FlxDestroyUtil.destroy(atlas);
+		super.destroy();
+		
 		super.destroy();
 	}
 }
