@@ -1,5 +1,6 @@
 package states.stages;
 
+import ModelView;
 import flixel.math.FlxAngle;
 import sys.io.File;
 import lime.ui.FileDialog;
