@@ -133,6 +133,10 @@ class TVStage extends BaseStage
 	// var tex:Texture;
 	var posMap:Map<String, PosThing> = [];
 
+	var boyfriend:Character3D;
+	var dad:Character3D;
+	var gf:Character3D;
+
 	override function create()
 	{
 
