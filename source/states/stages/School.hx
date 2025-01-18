@@ -126,6 +126,11 @@ class School extends BaseStage
 	// var tex:Texture;
 	var posMap:Map<String, PosThing> = [];
 	var bgGirls:BackgroundGirls;
+	
+	var boyfriend:Character3D;
+	var dad:Character3D;
+	var gf:Character3D;
+	
 	override function create()
 	{
 			view = new ModelView(1, 0, 1, 1, 6000);
