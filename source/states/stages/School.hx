@@ -127,6 +127,10 @@ class School extends BaseStage
 	var posMap:Map<String, PosThing> = [];
 	var bgGirls:BackgroundGirls;
 	
+	var boyfriendMap:Map<String, Character3D> = new Map<String, Character3D>();
+	var dadMap:Map<String, Character3D> = new Map<String, Character3D>();
+	var gfMap:Map<String, Character3D> = new Map<String, Character3D>();
+	
 	var boyfriend3d:Character3D;
 	var dad3d:Character3D;
 	var gf3d:Character3D;
@@ -159,6 +163,40 @@ class School extends BaseStage
 			view.view.y = FlxG.stage.stageHeight / 2 - FlxG.scaleMode.gameSize.y / 2;
 	}
 
+	public function addCharacterToList(newCharacter:String, type:Int) {
+		switch(type) {
+			case 0:
+				if(!boyfriendMap.exists(newCharacter)) {
+					var newBoyfriend:Character3D = new Character3D(0, 0, newCharacter, true);
+					boyfriendMap.set(newCharacter, newBoyfriend);
+					boyfriendGroup.add(newBoyfriend);
+					startCharacterPos(newBoyfriend);
+					newBoyfriend.alpha = 0.00001;
+					startCharacterScripts(newBoyfriend.curCharacter);
+				}
+
+			case 1:
+				if(!dadMap.exists(newCharacter)) {
+					var newDad:Character3D = new Character3D(0, 0, newCharacter);
+					dadMap.set(newCharacter, newDad);
+					dadGroup.add(newDad);
+					startCharacterPos(newDad, true);
+					newDad.alpha = 0.00001;
+					startCharacterScripts(newDad.curCharacter);
+				}
+
+			case 2:
+				if(gf3d != null && !gfMap.exists(newCharacter)) {
+					var newGf:Character3D = new Character3D(0, 0, newCharacter);
+					newGf.scrollFactor.set(0.95, 0.95);
+					gfMap.set(newCharacter, newGf);
+					gfGroup.add(newGf);
+					startCharacterPos(newGf);
+					newGf.alpha = 0.00001;
+					startCharacterScripts(newGf.curCharacter);
+				}
+		}
+	}
 	private function onAssetComplete(event:Asset3DEvent):Void
 	{
 		if (event.asset.assetType == Asset3DType.MESH)
