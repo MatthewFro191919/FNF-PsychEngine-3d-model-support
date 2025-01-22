@@ -737,7 +737,6 @@ class Character3D extends FlxSprite
 	// special thanks ne_eo for the references, you're the goat!!
 	@:allow(states.editors.CharacterEditorState)
 	public var isAnimateAtlas(default, null):Bool = false;
-	#if flxanimate
 	public var atlas:FlxAnimate;
 	public override function draw()
 	{
