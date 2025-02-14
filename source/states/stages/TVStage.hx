@@ -197,33 +197,27 @@ class TVStage extends BaseStage
 		switch(type) {
 			case 0:
 				if(!boyfriendMap.exists(newCharacter)) {
-					var newBoyfriend:Character3D = new Character3D(0, 0, ModelView, true);
+					var newBoyfriend:Character3D = new Character3D(0, 0);
 					boyfriendMap.set(newCharacter, newBoyfriend);
 					boyfriendGroup.add(newBoyfriend);
-					startCharacterPos(newBoyfriend);
 					newBoyfriend.alpha = 0.00001;
-					startCharacterScripts(newBoyfriend.curCharacter);
 				}
 
 			case 1:
 				if(!dadMap.exists(newCharacter)) {
-					var newDad:Character3D = new Character3D(0, 0, ModelView);
+					var newDad:Character3D = new Character3D(0, 0);
 					dadMap.set(newCharacter, newDad);
 					dadGroup.add(newDad);
-					startCharacterPos(newDad, true);
 					newDad.alpha = 0.00001;
-					startCharacterScripts(newDad.curCharacter);
 				}
 
 			case 2:
 				if(gf3d != null && !gfMap.exists(newCharacter)) {
-					var newGf:Character3D = new Character3D(0, 0, ModelView);
+					var newGf:Character3D = new Character3D(0, 0);
 					newGf.scrollFactor.set(0.95, 0.95);
 					gfMap.set(newCharacter, newGf);
 					gfGroup.add(newGf);
-					startCharacterPos(newGf);
 					newGf.alpha = 0.00001;
-					startCharacterScripts(newGf.curCharacter);
 				}
 		}
 	}
@@ -322,15 +316,5 @@ class TVStage extends BaseStage
 			Math.random() * 40 - 20, randAngle);
 
 		prop.nodes[ParticleRotateToPositionNode.POSITION_VECTOR3D] = new Vector3D(Math.random() * 40 - 20, Math.random() * 40 - 20, Math.random() * 40 - 20);
-	}
-
-	function startCharacterPos(char:Character3D, ?gfCheck:Bool = false) {
-		if(gfCheck && char.curCharacter.startsWith('gf')) { //IF DAD IS GIRLFRIEND, HE GOES TO HER POSITION
-			char.setPosition(GF_X, GF_Y);
-			char.scrollFactor.set(0.95, 0.95);
-			char.danceEveryNumBeats = 2;
-		}
-		char.x += char.positionArray[0];
-		char.y += char.positionArray[1];
 	}
 }
