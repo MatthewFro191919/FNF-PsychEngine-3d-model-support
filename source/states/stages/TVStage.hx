@@ -197,7 +197,7 @@ class TVStage extends BaseStage
 		switch(type) {
 			case 0:
 				if(!boyfriendMap.exists(newCharacter)) {
-					var newBoyfriend:Character3D = new Character3D(0, 0, newCharacter, true);
+					var newBoyfriend:Character3D = new Character3D(0, 0, ModelView, true);
 					boyfriendMap.set(newCharacter, newBoyfriend);
 					boyfriendGroup.add(newBoyfriend);
 					startCharacterPos(newBoyfriend);
@@ -207,7 +207,7 @@ class TVStage extends BaseStage
 
 			case 1:
 				if(!dadMap.exists(newCharacter)) {
-					var newDad:Character3D = new Character3D(0, 0, newCharacter);
+					var newDad:Character3D = new Character3D(0, 0, ModelView);
 					dadMap.set(newCharacter, newDad);
 					dadGroup.add(newDad);
 					startCharacterPos(newDad, true);
@@ -217,7 +217,7 @@ class TVStage extends BaseStage
 
 			case 2:
 				if(gf3d != null && !gfMap.exists(newCharacter)) {
-					var newGf:Character3D = new Character3D(0, 0, newCharacter);
+					var newGf:Character3D = new Character3D(0, 0, ModelView);
 					newGf.scrollFactor.set(0.95, 0.95);
 					gfMap.set(newCharacter, newGf);
 					gfGroup.add(newGf);
