@@ -164,34 +164,6 @@ class School extends BaseStage
 			view.view.y = FlxG.stage.stageHeight / 2 - FlxG.scaleMode.gameSize.y / 2;
 	}
 
-	public function addCharacterToList(newCharacter:String, type:Int) {
-		switch(type) {
-			case 0:
-				if(!boyfriendMap.exists(newCharacter)) {
-					var newBoyfriend:Character3D = new Character3D(0, 0, ModelView, true);
-					boyfriendMap.set(newCharacter, newBoyfriend);
-					boyfriendGroup.add(newBoyfriend);
-					newBoyfriend.alpha = 0.00001;
-				}
-
-			case 1:
-				if(!dadMap.exists(newCharacter)) {
-					var newDad:Character3D = new Character3D(0, 0, ModelView);
-					dadMap.set(newCharacter, newDad);
-					dadGroup.add(newDad);
-					newDad.alpha = 0.00001;
-				}
-
-			case 2:
-				if(gf3d != null && !gfMap.exists(newCharacter)) {
-					var newGf:Character3D = new Character3D(0, 0, ModelView);
-					newGf.scrollFactor.set(0.95, 0.95);
-					gfMap.set(newCharacter, newGf);
-					gfGroup.add(newGf);
-					newGf.alpha = 0.00001;
-				}
-		}
-	}
 	private function onAssetComplete(event:Asset3DEvent):Void
 	{
 		if (event.asset.assetType == Asset3DType.MESH)
